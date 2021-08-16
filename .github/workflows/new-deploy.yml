@@ -9,13 +9,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
         with:
+          host: ec2-3-133-98-24.us-east-2.compute.amazonaws.com
+          username: ec2-user
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
-      - name: connect
-        run: ssh ec2-user@ec2-3-133-98-24.us-east-2.compute.amazonaws.com
+          port: 22
+          script: whoami
       
        
    
