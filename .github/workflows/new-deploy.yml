@@ -19,8 +19,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           instance-ids: ${{ secrets.INSTANCE_ID }}
 
-          working-directory: /
-          command: ls -al
+          working-directory: /home/ec2-user
+          command: touch test
           comment: Hello world!
 
       # Catch SSM outputs
